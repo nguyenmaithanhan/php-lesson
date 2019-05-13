@@ -1,0 +1,171 @@
+/* Global */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%; /* wird benötigt, damit das mobile Menü rechts versteckt ist */
+}
+
+body {
+    font-family: 'Roboto Slab', serif;
+    margin: 0;
+    overflow-x: hidden;  /* wird benötigt, damit das mobile Menü rechts versteckt ist */
+}
+
+/* Navigation */
+
+nav,
+main,
+footer {
+    padding: 12px;
+} 
+
+nav {
+    display: flex;
+    justify-content: space-between; /*content wird gleichmäßig ausgerichtet*/
+    align-items: center;
+}
+
+nav a {
+    color: #444;
+    text-decoration: none;
+}
+
+nav a:visited {
+    color: darkblue;
+}
+
+nav a:hover,
+nav a:focus,
+nav a:active {
+    color: black;
+}
+
+#menu {
+    position: absolute; /*legt sich über die anderen Bereiche; Element aus dem Textfluss raus*/
+    top: 0;
+    left: -100%;
+    bottom: 0;
+    width: 0;
+    background-color: rgba(211,207,207,0.9);
+    margin: 0;
+    padding: 12px;
+    transition: all 1s ease-out; /*animation, wird am ende langsamer*/
+    list-style: none;
+    display: block;
+    font-size: 20px;
+}
+
+#menu:target {
+    left: 0;
+    width: 100%;
+}
+
+.menu-burger-icon {
+    width: 30px;
+    height: auto;
+}
+
+.menu-close-icon {
+    width: 20px;
+    height: auto;
+    padding: 5px;
+    position: absolute;
+    right: 20px;
+    top: 20px; 
+}
+
+nav a.menu-active,
+footer a.menu-active,
+nav a.menu-active:visited,
+footer a.menu-active:visited {
+    color: green;
+}
+
+.logo {
+    width: 200px; 
+}
+
+main {
+    max-width: 960px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.reference {
+    margin-top: 40px;
+}
+
+.full-width {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.responsive-iframe {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+}
+
+.responsive-iframe iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Footer */
+
+footer {
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+footer a {
+    color: #444;
+    text-decoration: none;
+}
+
+footer a:visited {
+    color: darkblue;
+}
+
+footer a:hover,
+footer a:focus,
+footer a:active {
+    color: black;
+
+}
+
+@media screen and (min-width: 700px) {
+    #menu {
+        position: static; /*Standardeinstellung; Element normal im Textfluss*/ 
+        background-color: transparent;
+        width: auto;
+        padding: 0;
+        font-size: 16px;
+    }
+    #menu li {
+        display: inline; /*Zeilenumbruch; display: block -> Zeile für sich*/ 
+    }
+    #menu li:first-child /*bezieht sich nur auf erstes li (first-child)*/ {
+        display: none; /*ausgeblendet*/
+    }
+
+    .button-menu {
+        display: none;
+    }
+}
+
+/*  ohne Vorzeichen: bezieht sich aufs Element
+    . = bezieht sich auf eine Klasse
+    # = bezieht sich auf eine ID*/
